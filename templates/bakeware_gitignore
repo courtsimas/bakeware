@@ -1,0 +1,10 @@
+!.keep
+*.DS_Store
+*.swp
+.env
+bin/stubs
+coverage/*
+public/system
+rerun.txt
+tags
+vendor/bundler_gems
