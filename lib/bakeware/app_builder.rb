@@ -99,8 +99,8 @@ module Bakeware
       copy_file 'asset_sync', 'config/initializers/asset_sync.rb'
       copy_file 'timeout', 'config/initializers/timeout.rb'
       copy_file 'Procfile', 'Procfile'
-      inject_into_file 'Procfile', "\nworker:  bundle exec rake jobs:work",
-        :after => '/web: bundle exec rails server thin -p $PORT/'
+      inject_into_file 'Procfile', "worker: env QUEUE=* bundle exec rake resque:work",
+        :after => "\n"
       replace_in_file 'Procfile',
         'web: bundle exec rails server thin -p $PORT','web: bundle exec unicorn -p $PORT -c ./config/unicorn.rb'
     end
