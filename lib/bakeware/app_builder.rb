@@ -94,6 +94,15 @@ module Bakeware
     
     def add_extra_config
       copy_file 'unicorn_config', 'config/unicorn.rb'
+      copy_file 'newrelic_config', 'config/newrelic.yml'
+      copy_file 's3yml', 'config/s3.yml'
+      copy_file 'asset_sync', 'config/initializers/asset_sync.rb'
+      copy_file 'timeout', 'config/initializers/timeout.rb'
+      copy_file 'Procfile', 'Procfile'
+      inject_into_file 'Procfile', "\nworker:  bundle exec rake jobs:work",
+        :after => '/web: bundle exec rails server thin -p $PORT/'
+      replace_in_file 'Procfile',
+        'web: bundle exec rails server thin -p $PORT','web: bundle exec unicorn -p $PORT -c ./config/unicorn.rb'
     end
 
     def configure_time_zone
@@ -121,7 +130,6 @@ module Bakeware
 
     def setup_foreman
       copy_file 'sample.env', 'sample.env'
-      copy_file 'Procfile', 'Procfile'
     end
 
     def setup_stylesheets

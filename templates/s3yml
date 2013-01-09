@@ -1,0 +1,5 @@
+# may only need this for paperclip s3 pushing (or some other non-asset sync service with aws)
+access_key_id: <%= ENV[''] %>
+secret_access_key: <%= ENV[''] %>
+bucket: <%= ENV[''] %>
+s3_protocol: 'https'

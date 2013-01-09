@@ -45,9 +45,11 @@ This comes with:
 * [challah-facebook](/jdtornow/challah-facebook) extends Challah for FB authentication
 * [Compass](/chriseppstein/compass) for Sass mixins and standardization
 * [haml](/haml/haml) for haml - because we all should use it
+* [hirefireapp](/meskyanichi/hirefireapp) for auto scaling dynos on heroku
 * [newrelic_rpm](/newrelic/rpm) for analytics about the performance of your app
 * [Paperclip](/thoughtbot/paperclip) for file uploads
 * [pg](/ged/ruby-pg) for PostgreSQL
+* [rack-timeout](/kch/rack-timeout) for killing your app's hung processes before heroku times out (set to 29 seconds)
 * [redis](/antirez/redis) for redis
 * [resque](/defunkt/resque) for resque background processing
 * [Unicorn](/defunkt/unicorn) for a better http server

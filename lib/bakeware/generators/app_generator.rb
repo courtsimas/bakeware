@@ -94,7 +94,7 @@ module Bakeware
         build :add_meaty_gems
         build :add_extra_config
       end
-      say 'installing gems - BE PATIENT'
+      say 'preheating the oven - BE PATIENT'
       
       bundle_command 'install --binstubs=bin/stubs'
     end
@@ -174,7 +174,14 @@ module Bakeware
 
     def outro
       say 'Congratulations! You just baked up a project with bakeware.'
-      say "Remember to run 'rails generate airbrake' with your API key."
+      say "Remember to run 'rails generate airbrake' with your airbrake API key. Also, a newrelic standard config file was automatically setup for you."
+      if options[:meaty]
+        say "Since you went meaty, a standard unicorn config file was setup for you as well."
+        say "And you baked some challah (nice!), so don't forget to finish setting that up."
+      end
+      if options[:heroku]
+        say "Lastly, don't forget to add your heroku config vars for staging and production (for s3, etc)"
+      end
     end
 
     def run_bundle
