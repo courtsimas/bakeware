@@ -60,20 +60,16 @@ Then 'I can cleanly rake the project' do
   }
 end
 
-Then /^"(.*)" should not be installed$/ do |gem_name|
-  in_current_dir do
-    system("bundle show #{gem_name} 2>&1 > /dev/null").should be_false
-  end
-end
-
-Then /^"(.*)" should not be included in "(.*)"$/ do |content, file_path|
-  check_file_content file_path, content, false
-end
-
 Then /^the "([^"]*)" Heroku app should exist$/ do |app_name|
   FakeHeroku.should have_created_app(app_name)
 end
 
 Then /^the "([^"]*)" Github repo should exist$/ do |repo_name|
   FakeGithub.should have_created_repo(repo_name)
+end
+
+Then 'unicorn should be installed' do
+  in_current_dir do
+    system("bundle show unicorn 2>&1 > /dev/null").should be_true
+  end
 end
