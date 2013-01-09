@@ -87,7 +87,7 @@ You can optionally create Heroku staging and production apps:
 This has the same effect as running:
 
     heroku create projectname-staging --remote staging
-    heroku create projectname-production --remote production
+    heroku create projectname --remote production
 
 Github
 ------
