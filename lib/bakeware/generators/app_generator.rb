@@ -94,7 +94,8 @@ module Bakeware
         build :add_meaty_gems
         build :add_extra_config
       end
-
+      say 'installing gems - BE PATIENT'
+      
       bundle_command 'install --binstubs=bin/stubs'
     end
 

@@ -1,7 +1,7 @@
 gem 'asset_sync'
 gem 'aws-sdk'
 gem 'challah'
-gem 'challah-facebok'
+gem 'challah-facebook'
 gem 'compass'
 gem 'paperclip'
 gem 'redis'
