@@ -6,4 +6,4 @@ Feature: Creating a Heroku app
       | argument | value |
       | --heroku | true  |
     Then the "test_project-staging" Heroku app should exist
-    And the "test_project-production" Heroku app should exist
+    And the "test_project" Heroku app should exist
