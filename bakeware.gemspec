@@ -26,7 +26,7 @@ We use it at Oven Bits for most of our apps. YMMV, but we get decent mileage out
   s.rdoc_options = ["--charset=UTF-8"]
   s.extra_rdoc_files = %w[README.md LICENSE]
 
-  s.add_dependency 'rails', '3.2.10'
+  s.add_dependency 'rails', '>= 3.2.8'
   s.add_dependency 'bundler', '>= 1.1'
   s.add_dependency 'hub', '~> 1.10.2'
 

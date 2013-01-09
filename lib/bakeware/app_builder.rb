@@ -84,10 +84,16 @@ module Bakeware
       inject_into_file 'Gemfile', "\n#{new_gems}",
         :after => /gem 'jquery-rails'/
     end
-
-    def add_clearance_gem
-      inject_into_file 'Gemfile', "\ngem 'clearance'",
-        :after => /gem 'jquery-rails'/
+    
+    def add_meaty_gems
+      meaty_path = find_in_source_paths('Gemfile_extra_meat')
+      meaty_gems = File.open(meaty_path).read
+      inject_into_file 'Gemfile', "\n#{meaty_gems}",
+        :after => /gem 'haml'/
+    end
+    
+    def add_extra_config
+      copy_file 'unicorn_config', 'config/unicorn.rb'
     end
 
     def configure_time_zone
@@ -111,10 +117,6 @@ module Bakeware
 
     def setup_guard_spork
       copy_file 'Guardfile', 'Guardfile'
-    end
-
-    def generate_clearance
-      generate 'clearance:install'
     end
 
     def setup_foreman
@@ -181,20 +183,10 @@ module Bakeware
       end
     end
 
-    def setup_root_route
-      route "root :to => 'Clearance::Sessions#new'"
-    end
-
     def remove_routes_comment_lines
       replace_in_file 'config/routes.rb',
         /Application\.routes\.draw do.*end/m,
         "Application.routes.draw do\nend"
-    end
-
-    def set_attr_accessibles_on_user
-      inject_into_file 'app/models/user.rb',
-        "  attr_accessible :email, :password\n",
-        :after => /include Clearance::User\n/
     end
 
     def add_email_validator

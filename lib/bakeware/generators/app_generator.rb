@@ -3,8 +3,8 @@ require 'rails/generators/rails/app/app_generator'
 
 module Bakeware
   class AppGenerator < Rails::Generators::AppGenerator
-    class_option :clearance, :type => :boolean, :aliases => '-C', :default => true,
-      :desc => 'Add the Clearance Rails authentication library'
+    class_option :meaty, :type => :boolean, :aliases => '-M', :default => false,
+      :desc => 'Add the Meaty Extra Goodness (more gems)'
 
     class_option :database, :type => :string, :aliases => '-d', :default => 'postgresql',
       :desc => "Preconfigure for selected database (options: #{DATABASES.join('/')})"
@@ -39,7 +39,6 @@ module Bakeware
       invoke :copy_miscellaneous_files
       invoke :customize_error_pages
       invoke :remove_routes_comment_lines
-      invoke :setup_root_route
       invoke :setup_git
       invoke :create_heroku_apps
       invoke :create_github_repo
@@ -91,8 +90,9 @@ module Bakeware
       build :set_ruby_to_version_being_used
       build :add_custom_gems
 
-      if options[:clearance]
-        build :add_clearance_gem
+      if options[:meaty]
+        build :add_meaty_gems
+        build :add_extra_config
       end
 
       bundle_command 'install --binstubs=bin/stubs'
@@ -116,18 +116,7 @@ module Bakeware
 
       build :add_email_validator
       build :setup_default_rake_task
-      build :setup_clearance
       build :setup_foreman
-    end
-
-    def setup_clearance
-      if options[:clearance]
-        build :generate_clearance
-
-        if using_active_record?
-          build :set_attr_accessibles_on_user
-        end
-      end
     end
 
     def setup_stylesheets
@@ -180,13 +169,6 @@ module Bakeware
 
     def remove_routes_comment_lines
       build :remove_routes_comment_lines
-    end
-
-    def setup_root_route
-      if options[:clearance]
-        say 'Setting up a root route'
-        build :setup_root_route
-      end
     end
 
     def outro
