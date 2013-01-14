@@ -13,10 +13,7 @@ a test!
 
 5. Push to your fork and submit a pull request.
 
-
-At this point you're waiting on us. We like to at least comment on, if not
-accept, pull requests within three business days (and, typically, one business
-day). We may suggest some changes or improvements or alternatives.
+Then it's up to us when we pull in your change. Have patience.
 
 Some things that will increase the chance that your pull request is accepted,
 taken straight from the Ruby on Rails guide:
@@ -34,5 +31,3 @@ Syntax:
 * my_method(my_arg) not my_method( my_arg ) or my_method my_arg.
 * a = b and not a=b.
 * Follow the conventions you see used in the source already.
-
-And in case we didn't emphasize it enough: we love tests!
