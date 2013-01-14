@@ -29,6 +29,8 @@ This is the default mode. Comes with
 * [newrelic_rpm](/newrelic/rpm) for analytics about the performance of your app
 * [pg](/ged/ruby-pg) for PostgreSQL 
 
+As well as some other development tools (like pry-rails).
+
 Meaty Mode
 ---------
 
@@ -61,8 +63,10 @@ Testing
 Bakeware also comes with testing gems, including (but not limited to):
 
 * [Factory Girl](/thoughtbot/factory_girl) for test data
+* [mocha](/freerange/mocha) for mocking and stubbing
 * [simplecov](/colszowka/simplecov) for testing coverage analytics
 * [Timecop](/jtrupiano/timecop) for testing time
+* [turn](/TwP/turn) for better test reporting
 
 We don't use RSpec often, and even less often do we use minitest. So manually include those if you want.
 

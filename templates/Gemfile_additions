@@ -5,19 +5,23 @@ gem 'haml'
 
 group :development do
   gem 'foreman'
+  gem 'mailcatcher'
+  gem 'pry-rails'
 end
 
 group :development, :test do
   gem 'guard'
   gem 'guard-spork'
-  gem 'sham_rack'
 end
 
 group :test do
   gem 'factory_girl_rails'
-  gem 'database_cleaner'
-  gem 'simplecov', require: false
+  gem 'mocha', :require => false
+  gem 'shoulda-context'
+  gem 'shoulda-matchers'
+  gem 'simplecov'
   gem 'timecop'
+  gem 'turn'
 end
 
 group :staging, :production do
