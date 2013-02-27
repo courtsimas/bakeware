@@ -99,6 +99,7 @@ module Bakeware
       copy_file 'asset_sync', 'config/initializers/asset_sync.rb'
       copy_file 'timeout', 'config/initializers/timeout.rb'
       copy_file 'Procfile', 'Procfile'
+      concat_file 'import_scss_styles', 'app/assets/stylesheets/application.css.scss'
       inject_into_file 'Procfile', "worker: env QUEUE=* bundle exec rake resque:work",
         :after => "\n"
       replace_in_file 'Procfile',
@@ -136,7 +137,6 @@ module Bakeware
       copy_file 'app/assets/stylesheets/application.css',
         'app/assets/stylesheets/application.css.scss'
       remove_file 'app/assets/stylesheets/application.css'
-      concat_file 'import_scss_styles', 'app/assets/stylesheets/application.css.scss'
       create_file 'app/assets/stylesheets/_screen.scss'
     end
 
