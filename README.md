@@ -141,7 +141,7 @@ Credits
 
 ![Oven Bits](http://ovenbits.com/images/logo-color.png)
 
-Bakeware is maintained and funded by [Oven Bits](http://ovenbits.com)
+Bakeware is maintained and funded by [Oven Bits](http://ovenbits.com) and Court Simas.
 
 The names and logos for Oven Bits are trademarks of Oven Bits
 
