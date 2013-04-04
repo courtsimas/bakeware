@@ -2,6 +2,7 @@ gem 'airbrake'
 gem 'thin'
 gem 'pg'
 gem 'haml'
+gem 'rack-timeout' 
 
 group :development do
   gem 'foreman'

@@ -118,6 +118,7 @@ module Bakeware
       build :configure_action_mailer
       build :configure_time_zone
       build :configure_time_formats
+      build :configure_rack_timeout
       
       build :disable_xml_params
 

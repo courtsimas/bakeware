@@ -28,6 +28,7 @@ This is the default mode. Comes with
 * [haml](/haml/haml) for haml - because we should all use it
 * [newrelic_rpm](/newrelic/rpm) for analytics about the performance of your app
 * [pg](/ged/ruby-pg) for PostgreSQL 
+* [rack-timeout](/kch/rack-timeout) for killing a zombie process
 
 As well as some other development tools (like pry-rails).
 
