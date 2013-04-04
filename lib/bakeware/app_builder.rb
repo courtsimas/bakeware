@@ -20,8 +20,8 @@ module Bakeware
     end
 
     def provide_setup_script
-      copy_file 'script_setup', 'script/setup'
-      run 'chmod a+x script/setup'
+      copy_file 'bin_setup', 'bin/setup'
+      run 'chmod a+x bin/setup'
     end
 
     def setup_staging_environment
@@ -106,6 +106,14 @@ module Bakeware
         'web: bundle exec rails server thin -p $PORT','web: bundle exec unicorn -p $PORT -c ./config/unicorn.rb'
     end
 
+    def enable_database_cleaner
+      replace_in_file 'spec/spec_helper.rb',
+        'config.use_transactional_fixtures = true',
+        'config.use_transactional_fixtures = false'
+
+      copy_file 'database_cleaner_rspec.rb', 'spec/support/database_cleaner.rb'
+    end
+
     def configure_time_zone
       time_zone_config = <<-RUBY
     config.active_record.default_timezone = :utc
@@ -130,7 +138,7 @@ module Bakeware
     end
 
     def setup_foreman
-      copy_file 'sample.env', 'sample.env'
+      copy_file 'sample.env', '.sample.env'
     end
 
     def setup_stylesheets
@@ -199,6 +207,10 @@ module Bakeware
 
     def add_email_validator
       copy_file 'email_validator.rb', 'app/validators/email_validator.rb'
+    end
+    
+    def disable_xml_params
+      copy_file 'disable_xml_params.rb', 'config/initializers/disable_xml_params.rb'
     end
 
     def setup_default_rake_task

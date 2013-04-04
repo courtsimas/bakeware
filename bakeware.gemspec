@@ -28,9 +28,9 @@ We use it at Oven Bits for most of our apps. YMMV, but we get decent mileage out
   s.extra_rdoc_files = %w[README.md LICENSE]
 
   s.add_dependency 'rails', '>= 3.2.12'
-  s.add_dependency 'bundler', '>= 1.1'
+  s.add_dependency 'bundler', '>= 1.3'
   s.add_dependency 'hub', '~> 1.10.2'
 
-  s.add_development_dependency 'cucumber', '~> 1.1.9'
+  s.add_development_dependency 'cucumber', '~> 1.2.3'
   s.add_development_dependency 'aruba', '~> 0.4.11'
 end

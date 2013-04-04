@@ -58,7 +58,11 @@ module Bakeware
 
     def setup_test_environment
       say 'Setting up the test environment'
-      #still need some database cleaners in here
+      # build :enable_factory_girl_syntax
+      # build :test_factories_first
+      # build :generate_rspec
+      # build :configure_rspec
+      build :enable_database_cleaner
       build :setup_guard_spork
     end
 
@@ -114,6 +118,8 @@ module Bakeware
       build :configure_action_mailer
       build :configure_time_zone
       build :configure_time_formats
+      
+      build :disable_xml_params
 
       build :add_email_validator
       build :setup_default_rake_task
