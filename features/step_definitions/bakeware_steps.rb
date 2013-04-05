@@ -18,7 +18,7 @@ When 'I generate "$generator_with_args"' do |generator_with_args|
   end
 end
 
-When 'I ensure no databases exist for the "$project_name"' do |project_name|
+Given 'I ensure no databases exist for the "$project_name"' do |project_name|
   run "dropdb #{project_name}_development"
   run "dropdb #{project_name}_test"
 end
@@ -40,12 +40,6 @@ When 'I cd to the "$test_project" root' do |dirname|
   cd dirname
 end
 
-Then 'unicorn should be installed' do
-  in_current_dir do
-    system("bundle show unicorn 2>&1 > /dev/null").should be_true
-  end
-end
-
 Then 'I can cleanly rake the project' do
   steps %{
     And I run the rake task "db:create"
@@ -53,6 +47,12 @@ Then 'I can cleanly rake the project' do
     And I run the rake task "db:test:prepare"
     And I run the rake task "cucumber"
   }
+end
+
+Then /^"(.*)" should not be installed$/ do |gem_name|
+  in_current_dir do
+    system("bundle show #{gem_name} 2>&1 > /dev/null").should be_false
+  end
 end
 
 Then /^the "([^"]*)" Heroku app should exist$/ do |app_name|
