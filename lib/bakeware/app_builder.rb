@@ -106,10 +106,6 @@ module Bakeware
     end
 
     def enable_database_cleaner
-      replace_in_file 'spec/spec_helper.rb',
-        'config.use_transactional_fixtures = true',
-        'config.use_transactional_fixtures = false'
-
       copy_file 'database_cleaner_rspec.rb', 'spec/support/database_cleaner.rb'
     end
 

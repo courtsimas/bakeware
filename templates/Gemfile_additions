@@ -3,22 +3,30 @@ gem 'thin'
 gem 'pg'
 gem 'haml'
 gem 'rack-timeout' 
+gem 'rails', '>= 3.2.12'
 
 group :development do
   gem 'foreman'
   gem 'mailcatcher'
   gem 'pry-rails'
+  gem 'better_errors'
+  gem 'binding_of_caller'
+end
+
+group :assets do
+  gem 'sass-rails'
+  gem 'coffee-rails'
+  gem 'uglifier'
 end
 
 group :development, :test do
   gem 'factory_girl_rails'
-  gem 'better_errors'
-  gem 'binding_of_caller'
   gem 'guard'
   gem 'guard-spork'
 end
 
 group :test do
+  gem 'cane'
   gem 'mocha', :require => false
   gem 'shoulda-context'
   gem 'shoulda-matchers'
