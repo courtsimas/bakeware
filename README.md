@@ -30,7 +30,7 @@ This is the default mode. Comes with
 * [pg](https://github.com/ged/ruby-pg) for PostgreSQL 
 * [rack-timeout](https://github.com/kch/rack-timeout) for killing a zombie process
 
-As well as some other development tools (like pry-rails).
+As well as some other development tools (like pry-rails, better_errors, binding_of_caller).
 
 Meaty Mode
 ---------

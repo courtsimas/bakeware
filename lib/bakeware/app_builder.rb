@@ -99,7 +99,6 @@ module Bakeware
       copy_file 'asset_sync', 'config/initializers/asset_sync.rb'
       copy_file 'timeout', 'config/initializers/timeout.rb'
       copy_file 'Procfile', 'Procfile'
-      concat_file 'import_scss_styles', 'app/assets/stylesheets/application.css.scss'
       inject_into_file 'Procfile', "worker: env QUEUE=* bundle exec rake resque:work",
         :after => "\n"
       replace_in_file 'Procfile',
@@ -149,6 +148,7 @@ module Bakeware
       copy_file 'app/assets/stylesheets/application.css',
         'app/assets/stylesheets/application.css.scss'
       remove_file 'app/assets/stylesheets/application.css'
+      concat_file 'import_scss_styles', 'app/assets/stylesheets/application.css.scss'
       create_file 'app/assets/stylesheets/_screen.scss'
     end
 
@@ -171,13 +171,14 @@ module Bakeware
 
     def create_heroku_apps
       path_addition = override_path_for_tests
-      run "#{path_addition} heroku create #{app_name} --remote=production"
-      run "#{path_addition} heroku create #{app_name}-staging --remote=staging"
+      run_simple "#{path_addition} heroku create #{app_name} --remote=production"
+      run_simple "#{path_addition} heroku create #{app_name}-staging --remote=staging"
+      run_simple "#{path_addition} heroku config:add RACK_ENV=staging RAILS_ENV=staging --remote=staging" 
     end
 
     def create_github_repo(repo_name)
       path_addition = override_path_for_tests
-      run "#{path_addition} hub create #{repo_name}"
+      run_simple "#{path_addition} hub create #{repo_name}"
     end
 
     def copy_libraries

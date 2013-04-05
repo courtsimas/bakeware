@@ -11,12 +11,14 @@ group :development do
 end
 
 group :development, :test do
+  gem 'factory_girl_rails'
+  gem 'better_errors'
+  gem 'binding_of_caller'
   gem 'guard'
   gem 'guard-spork'
 end
 
 group :test do
-  gem 'factory_girl_rails'
   gem 'mocha', :require => false
   gem 'shoulda-context'
   gem 'shoulda-matchers'
