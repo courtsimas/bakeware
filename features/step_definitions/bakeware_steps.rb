@@ -40,6 +40,12 @@ When 'I cd to the "$test_project" root' do |dirname|
   cd dirname
 end
 
+Then 'unicorn should be installed' do
+  in_current_dir do
+    system("bundle show unicorn 2>&1 > /dev/null").should be_true
+  end
+end
+
 Then 'I can cleanly rake the project' do
   steps %{
     And I run the rake task "db:create"
@@ -55,10 +61,4 @@ end
 
 Then /^the "([^"]*)" Github repo should exist$/ do |repo_name|
   FakeGithub.should have_created_repo(repo_name)
-end
-
-Then 'unicorn should be installed' do
-  in_current_dir do
-    system("bundle show unicorn 2>&1 > /dev/null").should be_true
-  end
 end

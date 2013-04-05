@@ -167,9 +167,9 @@ module Bakeware
 
     def create_heroku_apps
       path_addition = override_path_for_tests
-      run_simple "#{path_addition} heroku create #{app_name} --remote=production"
-      run_simple "#{path_addition} heroku create #{app_name}-staging --remote=staging"
-      run_simple "#{path_addition} heroku config:add RACK_ENV=staging RAILS_ENV=staging --remote=staging" 
+      run "#{path_addition} heroku create #{app_name} --remote=production"
+      run "#{path_addition} heroku create #{app_name}-staging --remote=staging"
+      run "#{path_addition} heroku config:add RACK_ENV=staging RAILS_ENV=staging --remote=staging" 
     end
 
     def create_github_repo(repo_name)
