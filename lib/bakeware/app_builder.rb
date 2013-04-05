@@ -174,7 +174,7 @@ module Bakeware
 
     def create_github_repo(repo_name)
       path_addition = override_path_for_tests
-      run_simple "#{path_addition} hub create #{repo_name}"
+      run "#{path_addition} hub create #{repo_name}"
     end
 
     def copy_libraries
