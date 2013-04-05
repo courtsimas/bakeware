@@ -19,8 +19,8 @@ When 'I generate "$generator_with_args"' do |generator_with_args|
 end
 
 When 'I ensure no databases exist for the "$project_name"' do |project_name|
-  run_simple "dropdb #{project_name}_development"
-  run_simple "dropdb #{project_name}_test"
+  run "dropdb #{project_name}_development"
+  run "dropdb #{project_name}_test"
 end
 
 When 'I bake a project called "$project_name"' do |project_name|
