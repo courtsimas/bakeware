@@ -14,6 +14,9 @@ module Bakeware
 
     class_option :github, :type => :string, :aliases => '-G', :default => nil,
       :desc => 'Create Github repository and add remote origin pointed to repo'
+    
+    class_option :private, :type => :boolean, :aliases => '-p', :default => false, 
+      :desc => 'Make the Github repo private'
 
     class_option :skip_test_unit, :type => :boolean, :aliases => '-T', :default => false,
       :desc => 'Skip Test::Unit files'
@@ -148,7 +151,7 @@ module Bakeware
     def create_github_repo
       if options[:github]
         say 'Creating Github repo'
-        build :create_github_repo, options[:github]
+        build :create_github_repo, options[:github], options[:private]
       end
     end
 

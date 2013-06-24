@@ -172,9 +172,11 @@ module Bakeware
       run "#{path_addition} heroku config:add RACK_ENV=staging RAILS_ENV=staging --remote=staging" 
     end
 
-    def create_github_repo(repo_name)
+    def create_github_repo(repo_name, private_flag)
+      private_flag_var = nil
+      private_flag_var = '-p' if private_flag === true
       path_addition = override_path_for_tests
-      run "#{path_addition} hub create #{repo_name} -p"
+      run "#{path_addition} hub create #{repo_name} #{private_flag_var}"
     end
 
     def copy_libraries

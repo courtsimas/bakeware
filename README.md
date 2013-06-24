@@ -105,6 +105,9 @@ This has the same effect as running:
 
     hub create organization/project
 
+To create a private repo, pass the `--private true` option:
+
+    bakeware projectname --github organization/project --private true
 
 Test::Unit
 ----------
