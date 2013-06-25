@@ -29,13 +29,13 @@ module Bakeware
     def bakeware_customization
       invoke :remove_files_we_dont_need
       invoke :customize_gemfile
+      invoke :setup_database
       invoke :setup_development_environment
       invoke :setup_test_environment
       invoke :setup_staging_environment
       invoke :create_bakeware_views
       invoke :create_common_javascripts
       invoke :add_jquery_ui
-      invoke :setup_database
       invoke :configure_app
       invoke :setup_stylesheets
       invoke :copy_libraries

@@ -119,6 +119,8 @@ You can optionally skip Test::Unit files:
 Dependencies
 ------------
 
+Bakeware requires Ruby 1.9.3 or greater.
+
 Some gems included in Bakeware have native extensions. You should have GCC installed on your
 machine before generating an app with Bakeware.
 

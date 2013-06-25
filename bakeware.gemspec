@@ -1,5 +1,5 @@
 # -*- encoding: utf-8 -*-
-$:.push File.expand_path("../lib", __FILE__)
+$:.push File.expand_path('../lib', __FILE__)
 require 'bakeware/version'
 require 'date'
 
@@ -23,14 +23,16 @@ We use it at Oven Bits for most of our apps. YMMV, but we get decent mileage out
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
   s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
   s.require_paths = ["lib"]
+  
+  s.required_ruby_version = '>= 1.9.3'
 
   s.rdoc_options = ["--charset=UTF-8"]
   s.extra_rdoc_files = %w[README.md LICENSE]
 
-  s.add_dependency 'rails', '>= 3.2.12'
+  s.add_dependency 'rails', '>= 3.2.13'
   s.add_dependency 'bundler', '>= 1.3'
   s.add_dependency 'hub', '~> 1.10.2'
 
   s.add_development_dependency 'cucumber', '~> 1.2.3'
-  s.add_development_dependency 'aruba', '~> 0.4.11'
+  s.add_development_dependency 'aruba', '~> 0.5.2'
 end
