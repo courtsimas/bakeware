@@ -145,7 +145,7 @@ Please see CONTRIBUTING.md for details.
 Credits
 -------
 
-![Oven Bits](http://ovenbits.com/images/logo-color.png)
+![Oven Bits](http://dm6soazbl07fg.cloudfront.net/assets/logo-large-17567bfb7d5201402e41dfc1b981d570.png)
 
 Bakeware is maintained and funded by [Oven Bits](http://ovenbits.com) and Court Simas.
 
